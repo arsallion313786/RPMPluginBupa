@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.goqii.goqiiplugin"
+        version="1.0.0">
+    
+    <name>GoqiiPlugin</name>
+    <description>Cordova plugin to integrate Goqii SDK</description>
+    <license>MIT</license>
+    
+    <js-module name="GoqiiPlugin" src="www/goqiiplugin.js">
+        <clobbers target="GoqiiPlugin" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="GoqiiPlugin">
+                <param name="ios-package" value="GoqiiPlugin" />
+            </feature>
+            <feature name="OmronDevicePlugin">
+                <param name="ios-package" value="OmronDevicePlugin" />
+            </feature>
+            <preference name="UseSwiftLanguageVersion" value="5.0" />
+        </config-file>
+        
+        <dependency id="cordova-plugin-add-swift-support-arslan" url="https://github.com/arsallion313786/cordova-plugin-add-swift-support"  version="1.0.0" />
+        
+        <framework src="src/ios/GOQiiSDK.xcframework" custom="true" embed="true"/>
+        <source-file src="src/ios/GoqiiPlugin.swift" />
+        <source-file src="src/ios/OmronDevicePlugin.swift" />
+        <!-- Add Bluetooth Permissions to Info.plist -->
+        <edit-config target="NSBluetoothAlwaysUsageDescription" file="*-Info.plist" mode="merge">
+            <string>App requires Bluetooth access to connect with health devices.</string>
+        </edit-config>
+        <edit-config target="NSBluetoothPeripheralUsageDescription" file="*-Info.plist" mode="merge">
+            <string>App requires Bluetooth access to communicate with fitness devices.</string>
+        </edit-config>
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="GoqiiPlugin">
+                <param name="android-package" value="com.goqii.goqiiplugin.GoqiiPlugin" />
+            </feature>
+            <feature name="OmronDevicePlugin">
+                <param name="android-package" value="com.goqii.goqiiplugin.OmronDevicePlugin" />
+            </feature>
+        </config-file>
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest">
+            <manifest xmlns:tools="http://schemas.android.com/tools"/>
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-feature
+                android:name="android.hardware.bluetooth_le"
+                android:required="true" />
+            <uses-permission
+                android:name="android.permission.BLUETOOTH"
+                android:maxSdkVersion="30" />
+            <uses-permission
+                android:name="android.permission.BLUETOOTH_ADMIN"
+                android:maxSdkVersion="30" />
+            <uses-permission
+                android:name="android.permission.BLUETOOTH_SCAN"
+                android:usesPermissionFlags="neverForLocation"
+                tools:targetApi="s" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+        <lib-file src="src/android/goqii-sdk.aar" />
+        <source-file src="src/android/GoqiiPlugin.java" target-dir="src/com/goqii/goqiiplugin" />
+        <source-file src="src/android/OmronDevicePlugin.java" target-dir="src/com/goqii/goqiiplugin" />
+        <framework src="src/android/goqiiplugin.gradle" custom="true" type="gradleReference"/>
+        <framework src="com.fasterxml.jackson.core:jackson-core:2.9.0" />
+        <framework src="com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+        <framework src="com.fasterxml.jackson.core:jackson-databind:2.9.0" />
+        <framework src="com.google.code.gson:gson:2.8.5" />
+        <config-file target="res/values/colors.xml" parent="/*">
+            <color name="white">#FFFFFF</color>
+        </config-file>
+    </platform>
+</plugin>
