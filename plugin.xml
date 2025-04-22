@@ -69,10 +69,10 @@
         <source-file src="src/android/GoqiiPlugin.java" target-dir="src/com/goqii/goqiiplugin" />
         <source-file src="src/android/OmronDevicePlugin.java" target-dir="src/com/goqii/goqiiplugin" />
         <framework src="src/android/goqiiplugin.gradle" custom="true" type="gradleReference"/>
-        <framework src="com.fasterxml.jackson.core:jackson-core:2.9.0" />
-        <framework src="com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
-        <framework src="com.fasterxml.jackson.core:jackson-databind:2.9.0" />
-        <framework src="com.google.code.gson:gson:2.8.5" />
+<!--        <framework src="com.fasterxml.jackson.core:jackson-core:2.9.0" />-->
+<!--        <framework src="com.fasterxml.jackson.core:jackson-annotations:2.9.0" />-->
+<!--        <framework src="com.fasterxml.jackson.core:jackson-databind:2.9.0" />-->
+<!--        <framework src="com.google.code.gson:gson:2.8.5" />-->
         <config-file target="res/values/colors.xml" parent="/*">
             <color name="white">#FFFFFF</color>
         </config-file>
