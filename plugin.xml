@@ -8,7 +8,7 @@
     <license>MIT</license>
     
     <js-module name="GoqiiPlugin" src="www/goqiiplugin.js">
-        <clobbers target="GoqiiPlugin" />
+        <clobbers target="cordova.plugins.GoqiiPlugin" />
     </js-module>
 
     <platform name="ios">
