@@ -45,24 +45,24 @@
                 <param name="android-package" value="com.goqii.goqiiplugin.OmronDevicePlugin" />
             </feature>
         </config-file>
-<!--        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest">-->
-<!--            <manifest xmlns:tools="http://schemas.android.com/tools"/>-->
-<!--        </edit-config>-->
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest" mode="overwrite">
+            <manifest xmlns:tools="http://schemas.android.com/tools"/>
+        </edit-config>
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-feature
                 android:name="android.hardware.bluetooth_le"
                 android:required="true" />
-<!--            <uses-permission-->
-<!--                android:name="android.permission.BLUETOOTH"-->
-<!--                android:maxSdkVersion="30" />-->
-<!--            <uses-permission-->
-<!--                android:name="android.permission.BLUETOOTH_ADMIN"-->
-<!--                android:maxSdkVersion="30" />-->
-<!--            <uses-permission-->
-<!--                android:name="android.permission.BLUETOOTH_SCAN"-->
-<!--                android:usesPermissionFlags="neverForLocation"-->
-<!--                tools:targetApi="s" />-->
-<!--            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />-->
+            <uses-permission
+                android:name="android.permission.BLUETOOTH"
+                android:maxSdkVersion="30" />
+            <uses-permission
+                android:name="android.permission.BLUETOOTH_ADMIN"
+                android:maxSdkVersion="30" />
+            <uses-permission
+                android:name="android.permission.BLUETOOTH_SCAN"
+                android:usesPermissionFlags="neverForLocation"
+                tools:targetApi="s" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
         </config-file>
         <lib-file src="src/android/goqii-sdk.aar" />
