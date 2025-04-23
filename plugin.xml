@@ -45,9 +45,9 @@
                 <param name="android-package" value="com.goqii.goqiiplugin.OmronDevicePlugin" />
             </feature>
         </config-file>
-        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest" mode="overwrite">
-            <manifest xmlns:tools="http://schemas.android.com/tools"/>
-        </edit-config>
+<!--        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest">-->
+<!--            <manifest xmlns:tools="http://schemas.android.com/tools"/>-->
+<!--        </edit-config>-->
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-feature
                 android:name="android.hardware.bluetooth_le"
