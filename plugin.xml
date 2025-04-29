@@ -15,20 +15,17 @@
         <config-file target="config.xml" parent="/*">
             <feature name="GoqiiPlugin">
                 <param name="ios-package" value="GoqiiPlugin" />
+                <preference name="UseSwiftLanguageVersion" value="5.0" />
             </feature>
             <feature name="OmronDevicePlugin">
                 <param name="ios-package" value="OmronDevicePlugin" />
+                <preference name="UseSwiftLanguageVersion" value="5.0" />
             </feature>
-            <preference name="UseSwiftLanguageVersion" value="5.0" />
         </config-file>
-        
-        <dependency id="cordova-plugin-add-swift-support-arslan" url="https://github.com/arsallion313786/cordova-plugin-add-swift-support"  version="1.0.0" />
-        
         <framework src="src/ios/GOQiiSDK.xcframework" custom="true" embed="true"/>
         <source-file src="src/ios/GoqiiPlugin.swift" />
         <source-file src="src/ios/OmronDevicePlugin.swift" />
         <!-- Add Bluetooth Permissions to Info.plist -->
-        
         <preference name="Blue_Tooth_Permission" default="App requires Bluetooth access to communicate with fitness devices." />
         <config-file target="*-Info.plist" parent="NSBluetoothAlwaysUsageDescription">
             <string>$Blue_Tooth_Permission</string>
@@ -39,15 +36,6 @@
         <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
             <string>$Blue_Tooth_Permission_Peripheral</string>
         </config-file>
-        
-        
-<!--        <edit-config target="NSBluetoothAlwaysUsageDescription" file="*-Info.plist" mode="merge">-->
-<!--            <string>App requires Bluetooth access to connect with health devices.</string>-->
-<!--        </edit-config>-->
-<!--        -->
-<!--        <edit-config target="NSBluetoothPeripheralUsageDescription" file="*-Info.plist" mode="merge">-->
-<!--            <string>App requires Bluetooth access to communicate with fitness devices.</string>-->
-<!--        </edit-config>-->
     </platform>
 
     <platform name="android">
