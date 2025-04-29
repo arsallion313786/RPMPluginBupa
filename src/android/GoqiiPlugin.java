@@ -116,10 +116,18 @@ public class GoqiiPlugin extends CordovaPlugin {
             @Override
             public void onSyncComplete(String result) {
                 // lastCommandCallback.success(data);
+                try{
+                    JSONObject resultParser = new JSONObject(result);
+                    resultParser.put("methodType", "glucometerData");
 
-                PluginResult pResult = new PluginResult(PluginResult.Status.OK, result);
-                pResult.setKeepCallback(true);
-                resultListenerCallbackContext.sendPluginResult(pResult);
+                    PluginResult pResult = new PluginResult(PluginResult.Status.OK, resultParser.toString());
+                    pResult.setKeepCallback(true);
+                    resultListenerCallbackContext.sendPluginResult(pResult);
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+
             }
 
             @Override

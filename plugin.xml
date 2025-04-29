@@ -11,7 +11,7 @@
         <clobbers target="cordova.plugins.GoqiiPlugin" />
     </js-module>
 
-    <platform name="ios">
+    <platform name="ios"> 
         <config-file target="config.xml" parent="/*">
             <feature name="GoqiiPlugin">
                 <param name="ios-package" value="GoqiiPlugin" />
