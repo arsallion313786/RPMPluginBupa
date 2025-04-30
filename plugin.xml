@@ -54,6 +54,10 @@
             <uses-feature
                 android:name="android.hardware.bluetooth_le"
                 android:required="true" />
+                <uses-permission android:name="android.permission.BLUETOOTH" />
+                <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+                <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+                <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 <!--            <uses-permission-->
 <!--                android:name="android.permission.BLUETOOTH"-->
 <!--                android:maxSdkVersion="30" />-->
@@ -78,5 +82,7 @@
         <config-file target="res/values/colors.xml" parent="/*">
             <color name="white">#FFFFFF</color>
         </config-file>
+        <dependency id="cordova-plugin-android-permissions" url="https://github.com/bhrott/cordova-plugin-android-permission"/>
+        <dependency id="cordova-plugin-device" url="https://github.com/apache/cordova-plugin-device"/>
     </platform>
 </plugin>
