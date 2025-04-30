@@ -84,6 +84,6 @@
             <color name="white">#FFFFFF</color>
         </config-file>
         <dependency id="cordova-plugin-android-permissions" url="https://github.com/NeoLSN/cordova-plugin-android-permission.git" version="1.1.5"/>
-        <dependency id="cordova-plugin-device" url="https://github.com/apache/cordova-plugin-device" version="3.0.0"/>
+        <dependency id="cordova-plugin-device" url="https://github.com/apache/cordova-plugin-device"/>
     </platform>
 </plugin>
