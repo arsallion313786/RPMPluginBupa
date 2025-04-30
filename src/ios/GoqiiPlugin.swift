@@ -134,13 +134,13 @@ func searchGlucometer(command: CDVInvokedUrlCommand) {
     func unlinkGlucometer(command: CDVInvokedUrlCommand) {
         print("🔌 unlinkGlucometer called...")
 
-      var result = BLE.sharedInstance().unlinkGlucoMeter()
+        let result = BLE.sharedInstance().unlinkGlucoMeter()
         var pluginResult:CDVPluginResult!
         if(result){
-            pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data":  "Unlink Glucometer successful"])
+            pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data":  "Unlink Glucometer successful", "methodTyope": "unlinkGlucometer"])
         }
         else{
-            pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: ["data":  "Unlink Glucometer failed"])
+            pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Unlink Glucometer failed")
         }
         self.sendDataBackToOutSystem(pluginResult: pluginResult)
         //self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
@@ -329,7 +329,7 @@ func glucoMeterData(_ data: [Any]) {
     
     
     //
-    if let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data": newStr]) {
+    if let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data": newStr, "methodType" : "glucometerData"]) {
         self.sendDataBackToOutSystem(pluginResult: pluginResult);
     }
 

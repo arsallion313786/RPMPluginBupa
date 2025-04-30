@@ -73,6 +73,7 @@ public class GoqiiPlugin extends CordovaPlugin {
                 try{
                 JSONObject result = new JSONObject();
                 result.put("message", "Device Unlinked");
+                    result.put("methodType", "unlinkGlucometer");
                 // lastCommandCallback.success(result.toString());
                 
                 PluginResult pResult = new PluginResult(PluginResult.Status.OK, result.toString());
