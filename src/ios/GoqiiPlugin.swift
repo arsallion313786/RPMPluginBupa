@@ -137,7 +137,7 @@ func searchGlucometer(command: CDVInvokedUrlCommand) {
         let result = BLE.sharedInstance().unlinkGlucoMeter()
         var pluginResult:CDVPluginResult!
         if(result){
-            pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data":  "Unlink Glucometer successful", "methodTyope": "unlinkGlucometer"])
+            pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: ["data":  "Unlink Glucometer successful", "methodType": "unlinkGlucometer"])
         }
         else{
             pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "Unlink Glucometer failed")
